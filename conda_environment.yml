@@ -1,0 +1,14 @@
+name: env
+channels:
+  - pytorch
+  - nvidia
+  - default
+  - conda-forge
+dependencies:
+  - python=3.11
+  - casadi=3.6.*
+  - numpy
+  - matplotlib
+  - pandas
+  - do_mpc
+  - pytorch

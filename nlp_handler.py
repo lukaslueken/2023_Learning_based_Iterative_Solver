@@ -425,7 +425,5 @@ class NLPHandler():
 
         self.d_k_batch_func = self.d_k_func.map(N,"thread",N_threads)
 
-        self.DF_FB_batch_func = self.DF_FB_func.map(N,"thread",N_threads)
-
 
 

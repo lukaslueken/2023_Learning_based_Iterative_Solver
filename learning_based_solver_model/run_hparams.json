@@ -1,0 +1,1 @@
+{"n_layers": 1, "n_neurons": 2000, "n_in": 114, "n_out": 110, "N_epochs": 100, "batch_size": 1024, "lrs": [0.001], "N_steps": 200, "optimizer": "AdamW", "eps": 1e-06, "delta": 0.0, "offset": 1e-16, "rangeF": 0.1, "filter_level": 1000.0, "n_z": 110, "n_x": 32, "n_g": 56, "n_h": 22, "n_p": 3}

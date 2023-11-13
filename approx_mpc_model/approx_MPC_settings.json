@@ -1,0 +1,20 @@
+{
+    "n_in": 3,
+    "n_out": 1,
+    "n_layers": 6,
+    "n_neurons": 200,
+    "act_fn": "relu",
+    "input_vars": [
+        "x1_0",
+        "x2_0",
+        "u_prev"
+    ],
+    "output_vars": "u0",
+    "scaling_mode": "bounds",
+    "lb_x1": -10.0,
+    "ub_x1": 10.0,
+    "lb_x2": -10.0,
+    "ub_x2": 10.0,
+    "lb_u": -2.0,
+    "ub_u": 2.0
+}

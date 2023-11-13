@@ -1,0 +1,1 @@
+{"n_layers": 6, "n_neurons": 200, "n_in": 3, "n_out": 1, "N_epochs": 1000, "batch_size": 1024, "lrs": [0.01, 0.001, 0.0001, 1e-05], "overfit_batch": false, "train_data_file_name": "dataset_train_10000.pt", "val_data_file_name": "dataset_val_1000.pt", "n_train": 10000, "N_steps": 10, "optimizer": "AdamW", "train_loss": 1.0863610176073127e-06, "val_loss": 1.6618044677558193e-06}

@@ -1,0 +1,83 @@
+\begin{tabular}{llllll}
+\toprule
+ & max. error & 99th perc. & 90th perc. & 50th perc. & min. error \\
+\midrule
+approx_mpc & 6.45e-02 & 1.88e-02 & 9.57e-03 & 3.64e-03 & 4.13e-07 \\
+approx_solver & 4.85e-02 & 4.80e-05 & 1.67e-07 & 5.81e-08 & 3.86e-12 \\
+\bottomrule
+\end{tabular}
+
+\begin{tabular}{lll}
+\toprule
+ & approx_mpc & approx_solver \\
+\midrule
+max. error & 6.45e-02 & 4.85e-02 \\
+99th perc. & 1.88e-02 & 4.80e-05 \\
+90th perc. & 9.57e-03 & 1.67e-07 \\
+50th perc. & 3.64e-03 & 5.81e-08 \\
+min. error & 4.13e-07 & 3.86e-12 \\
+\bottomrule
+\end{tabular}
+
+\begin{tabular}{llllll}
+\toprule
+ & max. ratio & 99th perc. & 90th perc. & 50th perc. & min. ratio \\
+\midrule
+approx_mpc & 0.068 & 0.039 & 0.033 & 0.025 & 0.008 \\
+approx_solver & 1.992 & 1.165 & 0.829 & 0.613 & 0.279 \\
+\bottomrule
+\end{tabular}
+
+\begin{tabular}{lll}
+\toprule
+ & approx_mpc & approx_solver \\
+\midrule
+max. ratio & 0.068 & 1.992 \\
+99th perc. & 0.039 & 1.165 \\
+90th perc. & 0.033 & 0.829 \\
+50th perc. & 0.025 & 0.613 \\
+min. ratio & 0.008 & 0.279 \\
+\bottomrule
+\end{tabular}
+
+\begin{tabular}{llllll}
+\toprule
+ & max. time & 99th perc. & 90th perc. & 50th perc. & min. time \\
+\midrule
+approx_mpc & 0.001433 & 0.000844 & 0.000708 & 0.000639 & 0.000423 \\
+approx_solver & 0.057713 & 0.038792 & 0.017625 & 0.015551 & 0.012302 \\
+ipopt & 0.077252 & 0.040931 & 0.032437 & 0.026188 & 0.015225 \\
+\bottomrule
+\end{tabular}
+
+\begin{tabular}{llll}
+\toprule
+ & approx_mpc & approx_solver & ipopt \\
+\midrule
+max. time & 0.001433 & 0.057713 & 0.077252 \\
+99th perc. & 0.000844 & 0.038792 & 0.040931 \\
+90th perc. & 0.000708 & 0.017625 & 0.032437 \\
+50th perc. & 0.000639 & 0.015551 & 0.026188 \\
+min. time & 0.000423 & 0.012302 & 0.015225 \\
+\bottomrule
+\end{tabular}
+
+\begin{tabular}{llllll}
+\toprule
+ & max. iterations & 99th perc. & 90th perc. & 50th perc. & min. iterations \\
+\midrule
+approx_solver & 40 & 40 & 17 & 16 & 14 \\
+\bottomrule
+\end{tabular}
+
+\begin{tabular}{ll}
+\toprule
+ & approx_solver \\
+\midrule
+max. iterations & 40 \\
+99th perc. & 40 \\
+90th perc. & 17 \\
+50th perc. & 16 \\
+min. iterations & 14 \\
+\bottomrule
+\end{tabular}

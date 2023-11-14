@@ -1,0 +1,22 @@
+{
+    "max. error":{
+        "approx_mpc":"6.45e-02",
+        "approx_solver":"4.85e-02"
+    },
+    "99th perc.":{
+        "approx_mpc":"1.88e-02",
+        "approx_solver":"4.80e-05"
+    },
+    "90th perc.":{
+        "approx_mpc":"9.57e-03",
+        "approx_solver":"1.67e-07"
+    },
+    "50th perc.":{
+        "approx_mpc":"3.64e-03",
+        "approx_solver":"5.81e-08"
+    },
+    "min. error":{
+        "approx_mpc":"4.13e-07",
+        "approx_solver":"3.86e-12"
+    }
+}

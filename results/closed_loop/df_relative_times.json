@@ -1,0 +1,22 @@
+{
+    "max. ratio":{
+        "approx_mpc":"0.068",
+        "approx_solver":"1.992"
+    },
+    "99th perc.":{
+        "approx_mpc":"0.039",
+        "approx_solver":"1.165"
+    },
+    "90th perc.":{
+        "approx_mpc":"0.033",
+        "approx_solver":"0.829"
+    },
+    "50th perc.":{
+        "approx_mpc":"0.025",
+        "approx_solver":"0.613"
+    },
+    "min. ratio":{
+        "approx_mpc":"0.008",
+        "approx_solver":"0.279"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "max. time":{
+        "approx_mpc":"0.001433",
+        "approx_solver":"0.057713",
+        "ipopt":"0.077252"
+    },
+    "99th perc.":{
+        "approx_mpc":"0.000844",
+        "approx_solver":"0.038792",
+        "ipopt":"0.040931"
+    },
+    "90th perc.":{
+        "approx_mpc":"0.000708",
+        "approx_solver":"0.017625",
+        "ipopt":"0.032437"
+    },
+    "50th perc.":{
+        "approx_mpc":"0.000639",
+        "approx_solver":"0.015551",
+        "ipopt":"0.026188"
+    },
+    "min. time":{
+        "approx_mpc":"0.000423",
+        "approx_solver":"0.012302",
+        "ipopt":"0.015225"
+    }
+}

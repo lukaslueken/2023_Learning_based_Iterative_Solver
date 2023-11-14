@@ -1,0 +1,18 @@
+{
+    "eps": 1e-06,
+    "tolerance": 1e-06,
+    "noise_level": 0.3,
+    "n_runs": 1500,
+    "n_test": 1500,
+    "closed_loop_steps": 25,
+    "max_iter": 40,
+    "eval_ipopt": true,
+    "eval_approx_mpc": true,
+    "approx_solver_folder": "learning_based_solver_model",
+    "approx_mpc_folder": "approx_mpc_model",
+    "test_dataset_file_name": "dataset_test_1500.pt",
+    "seed": 0,
+    "offset": 1e-16,
+    "rangeF": 0.1,
+    "filter_level": 1000.0
+}

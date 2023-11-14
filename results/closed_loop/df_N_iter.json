@@ -1,0 +1,17 @@
+{
+    "max. iterations":{
+        "approx_solver":"40"
+    },
+    "99th perc.":{
+        "approx_solver":"40"
+    },
+    "90th perc.":{
+        "approx_solver":"17"
+    },
+    "50th perc.":{
+        "approx_solver":"16"
+    },
+    "min. iterations":{
+        "approx_solver":"14"
+    }
+}

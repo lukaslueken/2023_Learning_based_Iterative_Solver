@@ -8,6 +8,7 @@ Script for sampling the nonlinear double integrator nmpc based on given sampling
 
 # %% Imports
 import numpy as np
+import importlib.util
 import do_mpc
 from pathlib import Path
 import pandas as pd
@@ -36,15 +37,14 @@ return_full_mpc_data = True
 data_dir = file_pth.joinpath('./sampling')
 ## How are samples named? (DEFAULT)
 sample_name = 'sample'
-suffix = '_n4000'
+suffix = '_n100' # 'n_20000'
 sampling_plan_name = 'sampling_plan'+suffix #'sampling_plan'+suffix
 
 overwrite_sampler = False
 samples_dir = data_dir.joinpath('samples'+suffix)
 
 # Data
-test_run = False
-# filter_success_runs = False
+test_run = False # sample only one data point
 data_file_name = 'data'
 
 #####################################################
@@ -134,11 +134,12 @@ if return_full_mpc_data == True:
 
 # %% Save
 # Filter opt and Save
-df = pd.DataFrame(dh.filter(output_filter = lambda status: status==True))
+df = pd.DataFrame(dh.filter(output_filter = lambda status: status==True)) # consider only data which ipopt has solved to successfully (also including suboptimal solutions which did not reach optimizer tolerance)
 n_data = df.shape[0]
 df.to_pickle(str(data_dir) +'/' + data_file_name + '_n{}'.format(n_data) + '_opt' + '.pkl')
 
 # Save all
 df = pd.DataFrame(dh[:])
 n_data = df.shape[0]
-df.to_pickle(str(data_dir) +'/' + data_file_name + '_n{}'.format(n_data) + '_all' + '.pkl')
+df.to_pickle(str(data_dir) +'/' + data_file_name + '_n{}'.format(n_data) + '_all' + '.pkl') # consider infeasible points as well
+

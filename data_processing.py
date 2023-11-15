@@ -2,7 +2,7 @@
 Date: 2023-10-19
 Author: Lukas Lüken
 
-Script for processing the sampled data.
+Script for processing the sampled data and splitting it into training, validation and test datasets, with training sets of various sizes.
 
 """
 
@@ -30,7 +30,7 @@ data_dir = file_pth.joinpath('./sampling')
 # %% Config
 
 mode_val = False
-mode_test = True
+mode_test = False
 mode_train = False
 assert not (mode_val and mode_test and mode_train), "Only one mode can be active at a time"
 
@@ -40,7 +40,6 @@ nn_train = [100,1000,10000]
 
 
 # Samples
-# data_file_name = 'data_n100_all' # data processing - wip
 if mode_val:
     data_file_name = 'data_n1225_opt' # validation data
 elif mode_test:
@@ -48,7 +47,7 @@ elif mode_test:
 elif mode_train:
     data_file_name = 'data_n12127_opt' # training data
 else:
-    data_file_name = 'data_n57_opt' # data processing - wip
+    data_file_name = 'data_n62_opt' # data processing - for testing the script
 
 # %% Main
 
@@ -104,7 +103,7 @@ filter_idx = FB_filter_idx & KKT_filter_idx
 inputs = torch.stack([x_1,x_2,uprev],dim=1)
 outputs = u0.reshape(-1)
 
-# filter optimizer (ipopt) data which is suboptimal
+# filter optimizer (ipopt) data which is suboptimal to consider only points, which can be solved to optimality
 inputs_filtered = inputs[filter_idx,:]
 outputs_filtered = outputs[filter_idx]
 z_num_filtered = z_num[filter_idx,:]
@@ -115,19 +114,21 @@ if mode_val:
     idx = torch.randperm(len(inputs))[:n_val]
     data = (inputs[idx,:],outputs[idx],z_num[idx,:],p_num[idx,:])
     dataset = torch.utils.data.TensorDataset(*data)
-    torch.save(dataset,f"dataset_val_{n_val}.pt")
+    torch.save(dataset,file_pth.joinpath("datasets",f"dataset_val_{n_val}.pt"))
 elif mode_test:
     idx = torch.randperm(len(inputs_filtered))[:n_test]
     data = (inputs_filtered[idx,:],outputs_filtered[idx],z_num_filtered[idx,:],p_num_filtered[idx,:])
     dataset = torch.utils.data.TensorDataset(*data)
-    torch.save(dataset,f"dataset_test_{n_test}.pt")
+    torch.save(dataset,file_pth.joinpath("datasets",f"dataset_test_{n_test}.pt"))
 elif mode_train:
     for n_train in nn_train:
         idx = torch.randperm(len(inputs))[:n_train]    
         data = (inputs[idx,:],outputs[idx],z_num[idx,:],p_num[idx,:])
         dataset = torch.utils.data.TensorDataset(*data)
-        torch.save(dataset,f"dataset_train_{n_train}.pt")
+        torch.save(dataset,file_pth.joinpath("datasets",f"dataset_train_{n_train}.pt"))
 else:
     data = (inputs,outputs,z_num,p_num)
     dataset = torch.utils.data.TensorDataset(*data)
-    torch.save(dataset,"dataset_dummy.pt")
+    torch.save(dataset,file_pth.joinpath("datasets","dataset_dummy.pt"))
+
+# %%

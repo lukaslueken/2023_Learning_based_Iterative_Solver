@@ -6,6 +6,7 @@ Script to generate the sampling plans for the nonlinear double integrator nmpc.
 
 """
 # %% Imports
+import importlib.util
 import do_mpc
 import numpy as np
 
@@ -13,7 +14,7 @@ import numpy as np
 #####################################################
 
 # Samples
-n_samples = 2000
+n_samples = 100 #20000
 data_dir = './sampling/'
 sampling_plan_name = 'sampling_plan'+'_n'+str(n_samples)
 overwrite = True
@@ -62,3 +63,4 @@ sp.export(sampling_plan_name)
 # import pickle as pkl
 # with open('./sampling_test/test_sampling_plan.pkl','rb') as f:
 #     plan = pkl.load(f)
+# %%

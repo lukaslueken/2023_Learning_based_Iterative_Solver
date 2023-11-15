@@ -9,8 +9,7 @@ Script to visualize closed loop application of learned solver.
 
 closed_loop_run_folder = "closed_loop"
 
-visualize_metrics = False
-visualize_closed_loop = False # be careful, this can produce a lot of plots
+visualize_closed_loop = False # Visualization of MPC closed loop trajectories. Be careful, this can produce a lot of plots.
 analyse_results = True  
 
 # %% 
@@ -47,7 +46,6 @@ print(f"Loaded closed loop data with {n_runs} closed loop runs with noise: {nois
 print("-----------------------------------")
 
 
-
 # %% visualize trajectories
 if visualize_closed_loop:
     for trajectory in trajectories:
@@ -60,52 +58,6 @@ if visualize_closed_loop:
         # ax.set_ylabel("states and control action")
         ax.legend()
         ax.set_title("Closed loop trajectory")
-
-# %% visualize metrics
-if visualize_metrics:
-    fig, ax = plt.subplots(1,1)
-    for trajectory in trajectories:
-        ax.plot(trajectory["diff_u0"],"x")
-    ax.set_yscale("log")
-    ax.set_ylabel("Absolute error to optimal (ipopt) control action")
-    ax.set_xlabel("Closed loop iteration")
-    ax.set_title(f"Absolute error to optimal (ipopt) control action over {n_runs} closed loop runs with noise: {noise_level} and max. iter.: {max_iter}")
-
-    fig, ax = plt.subplots(1,1)
-    for trajectory in trajectories:
-        ax.plot(trajectory["diff_u0_approx_mpc"],"x")
-    ax.set_yscale("log")
-    ax.set_ylabel("Absolute error to approx. mpc control action")
-    ax.set_xlabel("Closed loop iteration")
-    ax.set_title(f"Absolute error to approx. mpc control action over {n_runs} closed loop runs with noise: {noise_level} and max. iter.: {max_iter}")
-
-    fig, ax = plt.subplots(1,1)
-    for trajectory in trajectories:
-        ax.plot(trajectory["norm_KKT"],"x")
-    ax.set_yscale("log")
-    ax.set_ylabel("2-norm KKT")
-    ax.set_xlabel("Closed loop iteration")
-    ax.set_title(f"KKT norm over {n_runs} closed loop runs with noise: {noise_level} and max. iter.: {max_iter}")
-
-    fig, ax = plt.subplots(1,1)
-    for trajectory in trajectories:
-        ax.plot(trajectory["norm_F_FB"])
-    ax.set_ylabel("2-norm F_FB")
-    ax.set_yscale("log")
-    ax.set_xlabel("Closed loop iteration")
-    ax.set_title(f"F_FB norm over {n_runs} closed loop runs with noise: {noise_level} and max. iter.: {max_iter}")
-
-    fig, ax = plt.subplots(1,1)
-    for trajectory in trajectories:
-        ax.plot(trajectory["N_iter"])
-    # ax.set_yscale("log")
-    ax.set_ylabel("Number of iterations")
-    ax.set_xlabel("Closed loop iteration")
-    ax.set_title(f"Number of iterations over {n_runs} closed loop iterations with noise: {noise_level}")
-    ax.set_yscale("log")
-    ax.set_yticks([10,100,1000])
-
-
 
 # %% analyze results
 
@@ -340,11 +292,11 @@ leg.get_frame().set_alpha(0.0)
 ax.set_title("Distribution of absolute error to optimal control action")
 
 # SAVE
-for format in ["png","svg","eps","pdf"]:
-    fig.savefig(file_pth.joinpath("results",closed_loop_run_folder,f"histogram_error_distribution.{format}"),format=format)
+# for format in ["png","svg","eps","pdf"]:
+#     fig.savefig(file_pth.joinpath("results",closed_loop_run_folder,f"histogram_error_distribution.{format}"),format=format)
 
-# save also in figure folder with run number
-figures_folder = file_pth.joinpath("figures")
+# save in figure folder
+figures_folder = file_pth.joinpath("figures","closed_loop")
 for format in ["png","svg","eps","pdf"]:
     fig.savefig(figures_folder.joinpath(f"histogram_error_distribution.{format}"),format=format)
 

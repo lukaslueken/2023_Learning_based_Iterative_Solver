@@ -164,7 +164,6 @@ seed = 0
 torch.manual_seed(seed)
 # np.random.seed(seed)
 device = torch.device('cpu')
-# device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 torch_data_type = torch.float64
 torch.set_default_dtype(torch_data_type)   
 file_pth = Path(__file__).parent.resolve()

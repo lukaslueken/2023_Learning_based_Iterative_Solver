@@ -35,10 +35,9 @@ save_runs = True
 import torch
 import numpy as np
 import subprocess
-# import matplotlib.pyplot as plt
-# import pandas as pd
+import importlib.util
 from pathlib import Path
-from approx_MPC import ApproxMPC, ApproxMPCSettings #, plot_history
+from approx_MPC import ApproxMPC, ApproxMPCSettings
 import do_mpc
 import json
 from timeit import default_timer as timer
@@ -314,7 +313,7 @@ if save_runs:
     
     # save trajectories
     for i in range(100):
-        run_folder = file_pth.joinpath("results_export","closed_loop",f"run_{i}")
+        run_folder = file_pth.joinpath("results","closed_loop",f"run_{i}")
         if run_folder.exists():
             continue
         else:

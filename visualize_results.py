@@ -53,7 +53,7 @@ def val_to_decim_str(val):
 file_pth = Path(__file__).parent.resolve()
 print("Filepath: ",file_pth)
 results_folder = file_pth.joinpath(results_folder_name)
-figures_folder = file_pth.joinpath(figures_folder_name)
+figures_folder = file_pth.joinpath(figures_folder_name,"open_loop")
 
 # %% Load ipopt metrics & results
 ipopt_metrics_file = results_folder.joinpath(ipopt_metrics_file_name)

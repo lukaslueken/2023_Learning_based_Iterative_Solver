@@ -350,7 +350,7 @@ for lvl in [1e-4,1e-5,1e-6,1e-7]:
 
 
 # %% Save run
-save_model = False
+save_model = True
 if save_model:
     print("Saving run...")
     run_hparams = {"n_layers": n_layers, "n_neurons": n_neurons, "n_in": n_in,
@@ -363,7 +363,7 @@ if save_model:
                     "n_h": nlp_handler.n_h, "n_p": nlp_handler.n_p}
 
     for i in range(100):
-        run_folder = file_pth.joinpath("approx_solver_models",f"run_{i}")
+        run_folder = file_pth.joinpath("learning_based_solver_model",f"run_{i}")
         if run_folder.exists():
             continue
         else:
@@ -379,10 +379,10 @@ if save_model:
 
 # %%
 # Load model
-load_model = False
+load_model = True
 if load_model:
     print("Loading model...")
-    run_folder_load = file_pth.joinpath("approx_solver_models",f"run_{i}")
+    run_folder_load = file_pth.joinpath("learning_based_solver_model",f"run_{i}")
     with open(run_folder_load.joinpath("run_hparams.json"),"r") as fp:
         run_hparams_loaded = json.load(fp)
 

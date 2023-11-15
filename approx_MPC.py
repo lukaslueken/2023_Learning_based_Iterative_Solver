@@ -235,7 +235,7 @@ class ApproxMPC():
             load_pth = Path(file_name+".pt")
         else:
             load_pth = Path(folder_pth,file_name+".pt")
-        self.ann.load_state_dict(torch.load(load_pth))
+        self.ann.load_state_dict(torch.load(load_pth,map_location=self.device))
         print("model loaded from: ", load_pth)
 
     ### Application as approx. MPC

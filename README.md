@@ -17,34 +17,56 @@ To better understand the structure of this repository and our code please read t
 
 ## Structure
 
-**Model predictive control of nonlinear double integrator** 
-Folder: nl_double_int_nmpc
+#### Model predictive control of nonlinear double integrator** 
+Folder: *nl_double_int_nmpc*
 Files:
 1. main.py
 2. template_model.py
 3. template_mpc.py
 4. template_simulator.py
 
-**Data Sampling**
+#### Data Sampling
 Files:
 1. generate_sampling_plans.py
 2. data_sampling.py
 3. data_processing.py
 
 Folders:
-1. datasets
-   Here, the datasets used for generating the results in the paper are stored.
-2. sampling
-   Folder, in which individual data samples and sampling plans are stored when running the sampling script
+1. *datasets*: Here, the datasets used for generating the results in the paper are stored.
+2. *sampling*: Folder, in which individual data samples and sampling plans are stored when running the sampling script
 
-**Learning-based iterative solver**
+#### Learning-based iterative solver
+Files:
+1. nlp_handler.py
+2. unsupervised_solver_learning.py
 
-**Approximate MPC**
+Folder:
+1. *learning_based_solver_model*: This folder contains the trained neural network parameters and settings for the learned solver used in the paper.
 
-**Open-loop evaluation**
+#### Approximate MPC
+Files:
+1. approx_MPC.py
+2. approx_mpc_training.py
 
-**Closed-loop evaluation**
+Folder:
+1. *approx_mpc_model*: This folder contains the trained neural network parameters and settings for the approximate MPC used for comparison.
 
+#### Results
+Files:
+1. evaluation.py: This file implements the open-loop evaluation of the learning-based iterative solver. The convergence behaviour is analysed.
+2. closed_loop_evaluation.py: This file contains a closed-loop simulation of the learning-based solver for the NMPC of the presented example. The predictions are compared to exact solutions obtained by using Ipopt and solutions by the approximate MPC as well.
+
+Folder:
+1. *results*: This folder contains all numerical evaluations of the learning-based iterative solver, the approximate MPC and the corresponding comparison to Ipopt. Furthermore, the closed-loop results are included in a subfolder.
+
+#### Visualization
+
+Files: 
+1. visualize_results.py
+2. visualize_closed_loop_results.py
+
+Folder:
+1. *figures*: This folder contains different formats of the figures shown in the paper. The figures are obtained by the results generated with the settings as given in the corresponding files.
 
 ## Note regarding use of Python>=3.11
 - The sampling feature in do-mpc uses "inspect.getargspec", which has been removed from Python>=3.11
